@@ -64,25 +64,25 @@
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T024 [P] [US3] Contract test for parent login endpoint in tests/contract/auth-parent.test.ts
-- [ ] T025 [P] [US3] Contract test for child login endpoint in tests/contract/auth-child.test.ts
-- [ ] T026 [P] [US3] Integration test for parent login flow in tests/integration/auth-parent-flow.test.ts
-- [ ] T027 [P] [US3] Integration test for child login flow in tests/integration/auth-child-flow.test.ts
-- [ ] T028 [P] [US3] Integration test for session persistence in tests/integration/session-persistence.test.ts
-- [ ] T029 [P] [US3] Integration test for logout in tests/integration/logout.test.ts
+- [x] T024 [P] [US3] Contract test for parent login endpoint in tests/contract/auth-parent.test.ts
+- [x] T025 [P] [US3] Contract test for child login endpoint in tests/contract/auth-child.test.ts
+- [x] T026 [P] [US3] Integration test for parent login flow in tests/integration/auth-parent-flow.test.ts
+- [x] T027 [P] [US3] Integration test for child login flow in tests/integration/auth-child-flow.test.ts
+- [x] T028 [P] [US3] Integration test for session persistence in tests/integration/session-persistence.test.ts
+- [x] T029 [P] [US3] Integration test for logout in tests/integration/logout.test.ts
 
 ### Implementation for User Story 3
 
-- [ ] T030 [US3] Implement parent login API endpoint in src/routes/api/auth/parent/login/+server.ts
-- [ ] T031 [US3] Implement child login API endpoint in src/routes/api/auth/child/login/+server.ts
-- [ ] T032 [US3] Implement logout API endpoint in src/routes/api/auth/logout/+server.ts
-- [ ] T033 [US3] Create parent login form component in src/lib/components/auth/LoginForm.svelte
-- [ ] T034 [US3] Create child login form component in src/lib/components/auth/ChildLoginForm.svelte
-- [ ] T035 [US3] Create login page route in src/routes/(auth)/login/+page.svelte
-- [ ] T036 [US3] Implement session management middleware in src/lib/middleware/session.ts
-- [ ] T037 [US3] Implement password hashing utility for children in src/lib/utils/password.ts
-- [ ] T038 [US3] Add error handling and validation for login forms
-- [ ] T039 [US3] Add logging for authentication events
+- [x] T030 [US3] Implement parent login API endpoint in src/routes/api/auth/parent/login/+server.ts
+- [x] T031 [US3] Implement child login API endpoint in src/routes/api/auth/child/login/+server.ts
+- [x] T032 [US3] Implement logout API endpoint in src/routes/api/auth/logout/+server.ts
+- [x] T033 [US3] Create parent login form component in src/lib/components/auth/LoginForm.svelte
+- [x] T034 [US3] Create child login form component in src/lib/components/auth/ChildLoginForm.svelte
+- [x] T035 [US3] Create login page route in src/routes/(auth)/login/+page.svelte
+- [x] T036 [US3] Implement session management middleware in src/lib/middleware/session.ts
+- [x] T037 [US3] Implement password hashing utility for children in src/lib/utils/password.ts
+- [x] T038 [US3] Add error handling and validation for login forms
+- [x] T039 [US3] Add logging for authentication events
 
 **Checkpoint**: At this point, User Story 3 should be fully functional - users can log in and maintain sessions
 
