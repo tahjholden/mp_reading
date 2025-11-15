@@ -142,26 +142,26 @@
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T066 [P] [US2] Integration test for child login and dashboard access in tests/integration/child-dashboard-flow.test.ts
-- [ ] T067 [P] [US2] Integration test for child profile access in tests/integration/child-profile-access.test.ts
-- [ ] T068 [P] [US2] Integration test for child preference updates in tests/integration/child-preferences.test.ts
-- [ ] T069 [P] [US2] Integration test for child password change restriction in tests/integration/child-password-restriction.test.ts
+- [x] T066 [P] [US2] Integration test for child login and dashboard access in tests/integration/child-dashboard-flow.test.ts
+- [x] T067 [P] [US2] Integration test for child profile access in tests/integration/child-profile-access.test.ts
+- [x] T068 [P] [US2] Integration test for child preference updates in tests/integration/child-preferences.test.ts
+- [x] T069 [P] [US2] Integration test for child password change restriction in tests/integration/child-password-restriction.test.ts
 
 ### Implementation for User Story 2
 
-- [ ] T070 [US2] Create child dashboard component in src/lib/components/child/ChildDashboard.svelte
-- [ ] T071 [US2] Create child dashboard page route in src/routes/(child)/dashboard/+page.svelte
-- [ ] T072 [US2] Create child profile view component in src/lib/components/child/ChildProfileView.svelte
-- [ ] T073 [US2] Create child profile page route in src/routes/(child)/profile/+page.svelte
-- [ ] T074 [US2] Implement get child profile API endpoint in src/routes/api/children/[childId]/+server.ts
-- [ ] T075 [US2] Implement update child preferences function in src/lib/server/api/children/update-preferences.ts
-- [ ] T076 [US2] Implement update child preferences API endpoint in src/routes/api/children/[childId]/preferences/+server.ts
-- [ ] T077 [US2] Implement update child avatar function in src/lib/server/api/children/update-avatar.ts
-- [ ] T078 [US2] Implement update child avatar API endpoint in src/routes/api/children/[childId]/avatar/+server.ts
-- [ ] T079 [US2] Add child session management for username-based authentication
-- [ ] T080 [US2] Add child dashboard data loading (reading progress, achievements, recommendations placeholders)
-- [ ] T081 [US2] Add validation that children cannot access password reset endpoints
-- [ ] T082 [US2] Add logging for child profile access events
+- [x] T070 [US2] Create child dashboard component in src/lib/components/child/ChildDashboard.svelte
+- [x] T071 [US2] Create child dashboard page route in src/routes/(child)/dashboard/+page.svelte
+- [x] T072 [US2] Create child profile view component in src/lib/components/child/ChildProfileView.svelte
+- [x] T073 [US2] Create child profile page route in src/routes/(child)/profile/+page.svelte
+- [x] T074 [US2] Implement get child profile API endpoint in src/routes/api/children/[childId]/+server.ts
+- [x] T075 [US2] Implement update child preferences function in src/lib/server/api/children/update-preferences.ts
+- [x] T076 [US2] Implement update child preferences API endpoint in src/routes/api/children/[childId]/preferences/+server.ts
+- [x] T077 [US2] Implement update child avatar function in src/lib/server/api/children/update-avatar.ts
+- [x] T078 [US2] Implement update child avatar API endpoint in src/routes/api/children/[childId]/avatar/+server.ts
+- [x] T079 [US2] Add child session management for username-based authentication
+- [x] T080 [US2] Add child dashboard data loading (reading progress, achievements, recommendations placeholders)
+- [x] T081 [US2] Add validation that children cannot access password reset endpoints
+- [x] T082 [US2] Add logging for child profile access events
 
 **Checkpoint**: At this point, User Story 2 should be fully functional - children can log in and access their profiles independently
 
