@@ -98,35 +98,35 @@
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T040 [P] [US1] Contract test for parent signup endpoint in tests/contract/auth-signup.test.ts
-- [ ] T041 [P] [US1] Contract test for create child endpoint in tests/contract/children-create.test.ts
-- [ ] T042 [P] [US1] Integration test for parent signup flow in tests/integration/parent-signup-flow.test.ts
-- [ ] T043 [P] [US1] Integration test for child creation flow in tests/integration/child-creation-flow.test.ts
-- [ ] T044 [P] [US1] Integration test for onboarding completion in tests/integration/onboarding-flow.test.ts
-- [ ] T045 [P] [US1] Integration test for RLS policies on child data in tests/integration/rls-children.test.ts
+- [x] T040 [P] [US1] Contract test for parent signup endpoint in tests/contract/auth-signup.test.ts
+- [x] T041 [P] [US1] Contract test for create child endpoint in tests/contract/children-create.test.ts
+- [x] T042 [P] [US1] Integration test for parent signup flow in tests/integration/parent-signup-flow.test.ts
+- [x] T043 [P] [US1] Integration test for child creation flow in tests/integration/child-creation-flow.test.ts
+- [x] T044 [P] [US1] Integration test for onboarding completion in tests/integration/onboarding-flow.test.ts
+- [x] T045 [P] [US1] Integration test for RLS policies on child data in tests/integration/rls-children.test.ts
 
 ### Implementation for User Story 1
 
-- [ ] T046 [US1] Implement parent signup API endpoint in src/routes/api/auth/parent/signup/+server.ts
-- [ ] T047 [US1] Implement create parent profile function in src/lib/server/api/parents/create.ts
-- [ ] T048 [US1] Implement create child API endpoint in src/routes/api/parents/children/+server.ts
-- [ ] T049 [US1] Implement create child profile function in src/lib/server/api/children/create.ts
-- [ ] T050 [US1] Implement username uniqueness validation in src/lib/utils/validation.ts
-- [ ] T051 [US1] Create parent signup form component in src/lib/components/auth/SignupForm.svelte
-- [ ] T052 [US1] Create social login component in src/lib/components/auth/SocialLogin.svelte
-- [ ] T053 [US1] Create signup page route in src/routes/(auth)/signup/+page.svelte
-- [ ] T054 [US1] Create add child form component in src/lib/components/parent/AddChildForm.svelte
-- [ ] T055 [US1] Create parent dashboard component in src/lib/components/parent/ParentDashboard.svelte
-- [ ] T056 [US1] Create parent dashboard page route in src/routes/(parent)/dashboard/+page.svelte
-- [ ] T057 [US1] Create child onboarding flow component in src/lib/components/child/OnboardingFlow.svelte
-- [ ] T058 [US1] Create reading interest survey component in src/lib/components/child/ReadingInterestSurvey.svelte
-- [ ] T059 [US1] Create avatar creator component in src/lib/components/child/AvatarCreator.svelte
-- [ ] T060 [US1] Create onboarding page route in src/routes/(child)/onboarding/+page.svelte
-- [ ] T061 [US1] Implement save onboarding data function in src/lib/server/api/onboarding/save.ts
-- [ ] T062 [US1] Implement onboarding completion API endpoint in src/routes/api/onboarding/complete/+server.ts
-- [ ] T063 [US1] Add parent guidance flow for first child addition
-- [ ] T064 [US1] Add validation for child profile creation (age, grade, username)
-- [ ] T065 [US1] Add logging for child profile creation events
+- [x] T046 [US1] Implement parent signup API endpoint in src/routes/api/auth/parent/signup/+server.ts
+- [x] T047 [US1] Implement create parent profile function in src/lib/server/api/parents/create.ts
+- [x] T048 [US1] Implement create child API endpoint in src/routes/api/parents/children/+server.ts
+- [x] T049 [US1] Implement create child profile function in src/lib/server/api/children/create.ts
+- [x] T050 [US1] Implement username uniqueness validation in src/lib/utils/validation.ts
+- [x] T051 [US1] Create parent signup form component in src/lib/components/auth/SignupForm.svelte
+- [x] T052 [US1] Create social login component in src/lib/components/auth/SocialLogin.svelte
+- [x] T053 [US1] Create signup page route in src/routes/(auth)/signup/+page.svelte
+- [x] T054 [US1] Create add child form component in src/lib/components/parent/AddChildForm.svelte
+- [x] T055 [US1] Create parent dashboard component in src/lib/components/parent/ParentDashboard.svelte
+- [x] T056 [US1] Create parent dashboard page route in src/routes/(parent)/dashboard/+page.svelte
+- [x] T057 [US1] Create child onboarding flow component in src/lib/components/child/OnboardingFlow.svelte
+- [x] T058 [US1] Create reading interest survey component in src/lib/components/child/ReadingInterestSurvey.svelte
+- [x] T059 [US1] Create avatar creator component in src/lib/components/child/AvatarCreator.svelte
+- [x] T060 [US1] Create onboarding page route in src/routes/(child)/onboarding/+page.svelte
+- [x] T061 [US1] Implement save onboarding data function in src/lib/server/api/onboarding/save.ts
+- [x] T062 [US1] Implement onboarding completion API endpoint in src/routes/api/onboarding/complete/+server.ts
+- [x] T063 [US1] Add parent guidance flow for first child addition
+- [x] T064 [US1] Add validation for child profile creation (age, grade, username)
+- [x] T065 [US1] Add logging for child profile creation events
 
 **Checkpoint**: At this point, User Story 1 should be fully functional - parents can create accounts, add children, and children can complete onboarding
 

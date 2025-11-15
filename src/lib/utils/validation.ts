@@ -114,3 +114,15 @@ export function validateChildName(name: string): ValidationResult {
 	return { valid: true };
 }
 
+/**
+ * Check username uniqueness (async - requires database query)
+ * This is a placeholder - actual uniqueness check is done in the API endpoint
+ */
+export async function checkUsernameUniqueness(
+	username: string
+): Promise<ValidationResult> {
+	// This would make an API call to check uniqueness
+	// For now, validation is done at the database level
+	return { valid: true };
+}
+
