@@ -4,10 +4,13 @@ import { PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY } from '$env/static/publi
 import type { Database } from './types';
 
 export function createClient(event: RequestEvent) {
-	return createServerClient<Database>(
+	const client = createServerClient<Database>(
 		PUBLIC_SUPABASE_URL,
 		PUBLIC_SUPABASE_ANON_KEY,
 		{
+			db: {
+				schema: 'mp_reading'
+			},
 			cookies: {
 				getAll() {
 					return event.cookies.getAll();
@@ -20,5 +23,7 @@ export function createClient(event: RequestEvent) {
 			}
 		}
 	);
+	
+	return client;
 }
 

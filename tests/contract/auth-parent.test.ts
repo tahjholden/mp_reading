@@ -11,7 +11,7 @@ describe('Parent Login API Contract', () => {
 	let supabase: ReturnType<typeof createClient>;
 
 	beforeAll(() => {
-		supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY);
+		supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, { db: { schema: 'mp_reading' } });
 	});
 
 	it('should accept email and password in request body', async () => {

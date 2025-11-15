@@ -19,7 +19,7 @@ describe('RLS Policies on Children Data', () => {
 	const parent2Email = `parent2-${Date.now()}@example.com`;
 
 	beforeAll(async () => {
-		supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY);
+		supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, { db: { schema: 'mp_reading' } });
 
 		// Create two parent accounts
 		const { data: parent1Data } = await supabase.auth.signUp({

@@ -13,7 +13,7 @@ describe('Parent Login Flow Integration', () => {
 	const testPassword = 'TestPassword123!';
 
 	beforeAll(() => {
-		supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY);
+		supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, { db: { schema: 'mp_reading' } });
 	});
 
 	it('should create a parent account and log in', async () => {

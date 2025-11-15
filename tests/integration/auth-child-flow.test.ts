@@ -17,7 +17,7 @@ describe('Child Login Flow Integration', () => {
 	let parentId: string;
 
 	beforeAll(async () => {
-		supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY);
+		supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, { db: { schema: 'mp_reading' } });
 		
 		// Create a test parent first
 		const { data: parentData } = await supabase.auth.signUp({

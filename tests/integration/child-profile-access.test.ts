@@ -17,7 +17,7 @@ describe('Child Profile Access Integration', () => {
 	const testEmail = `profile-parent-${Date.now()}@example.com`;
 
 	beforeAll(async () => {
-		supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY);
+		supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, { db: { schema: 'mp_reading' } });
 
 		// Create parent account
 		const { data: signUpData } = await supabase.auth.signUp({

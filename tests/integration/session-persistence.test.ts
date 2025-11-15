@@ -13,7 +13,7 @@ describe('Session Persistence', () => {
 	const testPassword = 'SessionTest123!';
 
 	beforeAll(() => {
-		supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY);
+		supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, { db: { schema: 'mp_reading' } });
 	});
 
 	it('should persist session after login', async () => {

@@ -13,7 +13,7 @@ describe('Create Child API Contract', () => {
 	let parentId: string;
 
 	beforeAll(async () => {
-		supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY);
+		supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, { db: { schema: 'mp_reading' } });
 		
 		// Create a test parent account
 		const { data: signUpData } = await supabase.auth.signUp({

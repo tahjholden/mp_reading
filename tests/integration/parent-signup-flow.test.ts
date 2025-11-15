@@ -13,7 +13,7 @@ describe('Parent Signup Flow Integration', () => {
 	const testPassword = 'SignupTest123!';
 
 	beforeAll(() => {
-		supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY);
+		supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, { db: { schema: 'mp_reading' } });
 	});
 
 	it('should create parent account via Supabase Auth', async () => {
