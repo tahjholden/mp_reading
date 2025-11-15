@@ -140,7 +140,7 @@
 	<div class="mb-6">
 		<h1 class="text-3xl font-bold text-gray-900">My Profile</h1>
 		<button
-			on:click={() => goto('/dashboard')}
+			on:click={() => goto('/child/dashboard')}
 			class="mt-2 text-blue-600 hover:underline"
 		>
 			← Back to Dashboard

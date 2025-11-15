@@ -64,7 +64,7 @@
 			childStore.updateChild({ onboarding_completed: true });
 
 			// Redirect to dashboard
-			goto('/dashboard');
+			goto('/child/dashboard');
 		} catch (err) {
 			error = 'An unexpected error occurred';
 			loading = false;

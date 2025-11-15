@@ -3,7 +3,7 @@ import type { RequestHandler } from './$types';
 import { createClient } from '$lib/supabase/server';
 import { getSessionUser } from '$lib/middleware/session';
 import { createParentProfile } from '$lib/server/api/parents/create';
-import { formatError, ValidationError, NotFoundError } from '$lib/utils/errors';
+import { formatError, ValidationError, NotFoundError, AuthenticationError } from '$lib/utils/errors';
 
 export const POST: RequestHandler = async (event) => {
 	try {
@@ -124,7 +124,13 @@ export const POST: RequestHandler = async (event) => {
 	} catch (error) {
 		const formattedError = formatError(error);
 		const statusCode =
-			error instanceof ValidationError ? 400 : error instanceof NotFoundError ? 404 : 500;
+			error instanceof AuthenticationError
+				? 401
+				: error instanceof ValidationError
+					? 400
+					: error instanceof NotFoundError
+						? 404
+						: 500;
 
 		return json(formattedError, { status: statusCode });
 	}

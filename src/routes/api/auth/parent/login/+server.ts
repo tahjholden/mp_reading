@@ -43,9 +43,8 @@ export const POST: RequestHandler = async (event) => {
 			.single();
 
 		if (parentError || !parentData) {
-			// Parent profile doesn't exist yet - this is okay for new signups
-			// But for login, we expect it to exist
-			throw new AuthenticationError('Parent profile not found');
+			// Parent profile doesn't exist - user must sign up first
+			throw new AuthenticationError('Parent profile not found. Please sign up first.');
 		}
 
 		// Log authentication event (for COPPA compliance)

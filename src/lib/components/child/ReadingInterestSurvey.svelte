@@ -1,9 +1,19 @@
 <script lang="ts">
-	export let surveyData = $state({
+	interface Props {
+		surveyData?: {
+			genres?: string[];
+			topics?: string[];
+			formats?: string[];
+		};
+	}
+
+	const defaultSurveyData = $state({
 		genres: [] as string[],
 		topics: [] as string[],
 		formats: [] as string[]
 	});
+
+	const { surveyData = $bindable(defaultSurveyData) } = $props<Props>();
 
 	const genres = [
 		'Fantasy',

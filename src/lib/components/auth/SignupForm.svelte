@@ -57,7 +57,7 @@
 			}
 
 			// Redirect to parent dashboard
-			goto('/dashboard');
+			goto('/parent/dashboard');
 		} catch (err) {
 			error = 'An unexpected error occurred';
 			loading = false;

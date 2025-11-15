@@ -4,7 +4,7 @@ import { createClient } from '$lib/supabase/server';
 import { requireAuth } from '$lib/middleware/session';
 import { generateInvitationToken } from '$lib/server/api/invitations/generate-token';
 import { sendInvitationEmail } from '$lib/server/api/invitations/send-email';
-import { formatError, AuthorizationError, ValidationError, NotFoundError } from '$lib/utils/errors';
+import { formatError, AuthorizationError, ValidationError, NotFoundError, AuthenticationError } from '$lib/utils/errors';
 
 export const POST: RequestHandler = async (event) => {
 	try {
@@ -117,13 +117,15 @@ export const POST: RequestHandler = async (event) => {
 	} catch (error) {
 		const formattedError = formatError(error);
 		const statusCode =
-			error instanceof AuthorizationError
-				? 403
-				: error instanceof ValidationError
-					? 400
-					: error instanceof NotFoundError
-						? 404
-						: 500;
+			error instanceof AuthenticationError
+				? 401
+				: error instanceof AuthorizationError
+					? 403
+					: error instanceof ValidationError
+						? 400
+						: error instanceof NotFoundError
+							? 404
+							: 500;
 
 		return json(formattedError, { status: statusCode });
 	}

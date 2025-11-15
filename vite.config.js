@@ -27,6 +27,17 @@ export default defineConfig(({ mode }) => {
 	
 	return {
 		plugins: [sveltekit()],
+		ssr: {
+			noExternal: ['@supabase/ssr', '@supabase/supabase-js']
+		},
+		optimizeDeps: {
+			exclude: ['jsonwebtoken']
+		},
+		build: {
+			rollupOptions: {
+				external: ['jsonwebtoken']
+			}
+		},
 		test: {
 			include: ['src/**/*.{test,spec}.{js,ts}', 'tests/**/*.{test,spec}.{js,ts}'],
 			environment: 'node',

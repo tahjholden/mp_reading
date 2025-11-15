@@ -1,10 +1,21 @@
 <script lang="ts">
-	export let avatarData = $state({
+	interface Props {
+		avatarData?: {
+			hair?: string;
+			eyes?: string;
+			clothes?: string;
+			skin?: string;
+		};
+	}
+
+	const defaultAvatarData = $state({
 		hair: 'brown',
 		eyes: 'blue',
 		clothes: 'casual',
 		skin: 'medium'
 	});
+
+	const { avatarData = $bindable(defaultAvatarData) } = $props<Props>();
 
 	const hairOptions = ['black', 'brown', 'blonde', 'red', 'blue', 'green'];
 	const eyeOptions = ['brown', 'blue', 'green', 'hazel', 'gray'];
@@ -12,7 +23,7 @@
 	const skinOptions = ['light', 'medium', 'dark'];
 
 	function updateAvatar(part: string, value: string) {
-		avatarData = { ...avatarData, [part]: value };
+		avatarData[part] = value;
 	}
 </script>
 

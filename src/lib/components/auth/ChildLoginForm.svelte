@@ -55,7 +55,7 @@
 
 			// Redirect based on onboarding status
 			if (data.child.onboarding_completed) {
-				goto('/dashboard');
+				goto('/child/dashboard');
 			} else {
 				goto('/onboarding');
 			}

@@ -3,7 +3,7 @@ import type { RequestHandler } from './$types';
 import { createClient } from '$lib/supabase/server';
 import { getSessionUser, requireAuth } from '$lib/middleware/session';
 import { saveOnboardingData } from '$lib/server/api/onboarding/save';
-import { formatError } from '$lib/utils/errors';
+import { formatError, AuthenticationError } from '$lib/utils/errors';
 
 export const POST: RequestHandler = async (event) => {
 	try {
@@ -83,7 +83,8 @@ export const POST: RequestHandler = async (event) => {
 		return json({ onboarding: onboardingData, completed: true });
 	} catch (error) {
 		const formattedError = formatError(error);
-		return json(formattedError, { status: 500 });
+		const statusCode = error instanceof AuthenticationError ? 401 : 500;
+		return json(formattedError, { status: statusCode });
 	}
 };
 

@@ -2,7 +2,7 @@ import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import { createClient } from '$lib/supabase/server';
 import { getSessionUser, requireAuth } from '$lib/middleware/session';
-import { formatError, AuthorizationError, NotFoundError } from '$lib/utils/errors';
+import { formatError, AuthorizationError, NotFoundError, AuthenticationError } from '$lib/utils/errors';
 
 export const GET: RequestHandler = async (event) => {
 	try {
@@ -56,11 +56,13 @@ export const GET: RequestHandler = async (event) => {
 	} catch (error) {
 		const formattedError = formatError(error);
 		const statusCode =
-			error instanceof AuthorizationError
-				? 403
-				: error instanceof NotFoundError
-					? 404
-					: 500;
+			error instanceof AuthenticationError
+				? 401
+				: error instanceof AuthorizationError
+					? 403
+					: error instanceof NotFoundError
+						? 404
+						: 500;
 
 		return json(formattedError, { status: statusCode });
 	}

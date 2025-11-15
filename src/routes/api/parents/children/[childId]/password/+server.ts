@@ -4,7 +4,7 @@ import { createClient } from '$lib/supabase/server';
 import { requireAuth } from '$lib/middleware/session';
 import { hashPassword } from '$lib/utils/password';
 import { validatePassword } from '$lib/utils/validation';
-import { formatError, AuthorizationError, NotFoundError, ValidationError } from '$lib/utils/errors';
+import { formatError, AuthorizationError, NotFoundError, ValidationError, AuthenticationError } from '$lib/utils/errors';
 
 export const PUT: RequestHandler = async (event) => {
 	try {
@@ -61,13 +61,15 @@ export const PUT: RequestHandler = async (event) => {
 	} catch (error) {
 		const formattedError = formatError(error);
 		const statusCode =
-			error instanceof AuthorizationError
-				? 403
-				: error instanceof NotFoundError
-					? 404
-					: error instanceof ValidationError
-						? 400
-						: 500;
+			error instanceof AuthenticationError
+				? 401
+				: error instanceof AuthorizationError
+					? 403
+					: error instanceof NotFoundError
+						? 404
+						: error instanceof ValidationError
+							? 400
+							: 500;
 
 		return json(formattedError, { status: statusCode });
 	}

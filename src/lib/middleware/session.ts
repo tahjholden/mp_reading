@@ -6,6 +6,7 @@
 import type { RequestEvent } from '@sveltejs/kit';
 import { createClient } from '$lib/supabase/server';
 import jwt from 'jsonwebtoken';
+import { AuthenticationError } from '$lib/utils/errors';
 
 export interface SessionUser {
 	id: string;
@@ -88,7 +89,7 @@ export async function getSessionUser(event: RequestEvent): Promise<SessionUser |
 export async function requireAuth(event: RequestEvent): Promise<SessionUser> {
 	const user = await getSessionUser(event);
 	if (!user) {
-		throw new Error('Authentication required');
+		throw new AuthenticationError('Authentication required');
 	}
 	return user;
 }
