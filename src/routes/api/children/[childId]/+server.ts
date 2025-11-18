@@ -3,6 +3,7 @@ import type { RequestHandler } from './$types';
 import { createClient } from '$lib/supabase/server';
 import { getSessionUser, requireAuth } from '$lib/middleware/session';
 import { formatError, AuthorizationError, NotFoundError, AuthenticationError } from '$lib/utils/errors';
+import { logDataAccess, getIpAddress, getUserAgent } from '$lib/server/api/logging/log-data-access';
 
 export const GET: RequestHandler = async (event) => {
 	try {
@@ -47,7 +48,15 @@ export const GET: RequestHandler = async (event) => {
 		}
 
 		// Log data access (for COPPA compliance)
-		// This would be logged to data_access_logs in production
+		await logDataAccess(supabase, {
+			userId: user.type === 'parent' ? user.id : null,
+			childId: childId,
+			action: 'read',
+			tableName: 'children',
+			recordId: childId,
+			ipAddress: getIpAddress(event.request),
+			userAgent: getUserAgent(event.request)
+		});
 
 		// Remove password_hash from response
 		const { password_hash, ...childWithoutPassword } = childData;

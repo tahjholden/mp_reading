@@ -84,11 +84,11 @@
 	}
 </script>
 
-<div class="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
+<div class="max-w-2xl mx-auto p-4 sm:p-6 bg-white rounded-lg shadow-md">
 	<h2 class="text-2xl font-bold mb-6 text-center">Welcome! Let's Get Started</h2>
 
 	<!-- Progress indicator -->
-	<div class="mb-6">
+	<div class="mb-6" role="progressbar" aria-valuenow={currentStep} aria-valuemin="1" aria-valuemax="3" aria-label="Onboarding progress">
 		<div class="flex justify-between mb-2">
 			<span class="text-sm text-gray-600">Step {currentStep} of 3</span>
 		</div>
@@ -96,6 +96,7 @@
 			<div
 				class="bg-blue-600 h-2 rounded-full transition-all"
 				style="width: {(currentStep / 3) * 100}%"
+				aria-hidden="true"
 			></div>
 		</div>
 	</div>
@@ -134,7 +135,7 @@
 	{/if}
 
 	{#if error}
-		<div class="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+		<div class="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded" role="alert" aria-live="assertive">
 			{error}
 		</div>
 	{/if}
@@ -145,7 +146,8 @@
 			<button
 				type="button"
 				on:click={previousStep}
-				class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300"
+				aria-label="Go to previous step"
+				class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
 			>
 				Previous
 			</button>
@@ -157,7 +159,8 @@
 			<button
 				type="button"
 				on:click={nextStep}
-				class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+				aria-label="Go to next step"
+				class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
 			>
 				Next
 			</button>
@@ -166,7 +169,9 @@
 				type="button"
 				on:click={completeOnboarding}
 				disabled={loading}
-				class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 disabled:opacity-50"
+				aria-busy={loading}
+				aria-disabled={loading}
+				class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed"
 			>
 				{loading ? 'Completing...' : 'Complete Onboarding'}
 			</button>

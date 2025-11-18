@@ -44,12 +44,12 @@
 	}
 </script>
 
-<div class="max-w-4xl mx-auto p-6">
-	<div class="mb-6 flex justify-between items-center">
-		<h1 class="text-3xl font-bold text-gray-900">Parent Dashboard</h1>
+<div class="max-w-4xl mx-auto p-4 sm:p-6">
+	<div class="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+		<h1 class="text-2xl sm:text-3xl font-bold text-gray-900">Parent Dashboard</h1>
 		<button
 			on:click={handleAddChild}
-			class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+			class="w-full sm:w-auto px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
 		>
 			Add Child
 		</button>

@@ -9,12 +9,13 @@ type DataAccessLog = Database['public']['Tables']['data_access_logs']['Insert'];
 
 /**
  * Log data access for COPPA compliance
+ * @deprecated Use logDataAccess from $lib/server/api/logging/log-data-access instead
  */
 export async function logDataAccess(
 	params: Omit<DataAccessLog, 'id' | 'timestamp'>
 ): Promise<void> {
-	// This will be implemented to call the API endpoint that logs to data_access_logs table
-	// For now, this is a placeholder
+	// Legacy function - kept for backward compatibility
+	// Use logDataAccess from $lib/server/api/logging/log-data-access for new code
 	console.log('Data access logged:', params);
 }
 

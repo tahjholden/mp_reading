@@ -31,7 +31,7 @@ BEGIN
   -- Note: For SELECT operations, this will be handled in application layer
   -- as triggers don't fire on SELECT in PostgreSQL
   IF TG_OP != 'SELECT' THEN
-    INSERT INTO data_access_logs (
+    INSERT INTO mp_reading.data_access_logs (
       user_id,
       child_id,
       action,
@@ -55,19 +55,19 @@ $$ LANGUAGE plpgsql SECURITY DEFINER;
 
 -- Trigger for children table (INSERT, UPDATE, DELETE)
 CREATE TRIGGER log_children_access
-  AFTER INSERT OR UPDATE OR DELETE ON children
+  AFTER INSERT OR UPDATE OR DELETE ON mp_reading.children
   FOR EACH ROW
   EXECUTE FUNCTION log_child_data_access();
 
 -- Trigger for onboarding_data table
 CREATE TRIGGER log_onboarding_access
-  AFTER INSERT OR UPDATE OR DELETE ON onboarding_data
+  AFTER INSERT OR UPDATE OR DELETE ON mp_reading.onboarding_data
   FOR EACH ROW
   EXECUTE FUNCTION log_child_data_access();
 
 -- Trigger for parent_invitations table (when related to children)
 CREATE TRIGGER log_invitation_access
-  AFTER INSERT OR UPDATE OR DELETE ON parent_invitations
+  AFTER INSERT OR UPDATE OR DELETE ON mp_reading.parent_invitations
   FOR EACH ROW
   EXECUTE FUNCTION log_child_data_access();
 

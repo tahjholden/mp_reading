@@ -1,6 +1,7 @@
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 import { createClient } from '$lib/supabase/server';
+import { formatError, AuthenticationError } from '$lib/utils/errors';
 
 export const POST: RequestHandler = async (event) => {
 	try {
@@ -10,7 +11,7 @@ export const POST: RequestHandler = async (event) => {
 		const { error } = await supabase.auth.signOut();
 
 		if (error) {
-			return json({ error: error.message }, { status: 500 });
+			throw new AuthenticationError(error.message);
 		}
 
 		// For child accounts, the session token is handled client-side
@@ -18,7 +19,9 @@ export const POST: RequestHandler = async (event) => {
 
 		return json({ success: true });
 	} catch (error) {
-		return json({ error: 'Logout failed' }, { status: 500 });
+		const formattedError = formatError(error);
+		const statusCode = error instanceof AuthenticationError ? 401 : 500;
+		return json(formattedError, { status: statusCode });
 	}
 };
 

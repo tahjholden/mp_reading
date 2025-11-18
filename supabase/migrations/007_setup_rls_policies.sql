@@ -6,18 +6,18 @@
 DO $$
 BEGIN
   IF NOT EXISTS (
-    SELECT 1 FROM pg_policies WHERE tablename = 'parents' AND policyname = 'Parents can view own profile'
+    SELECT 1 FROM pg_policies WHERE schemaname = 'mp_reading' AND tablename = 'parents' AND policyname = 'Parents can view own profile'
   ) THEN
     CREATE POLICY "Parents can view own profile"
-      ON parents FOR SELECT
+      ON mp_reading.parents FOR SELECT
       USING (id = auth.uid());
   END IF;
 
   IF NOT EXISTS (
-    SELECT 1 FROM pg_policies WHERE tablename = 'parents' AND policyname = 'Parents can update own profile'
+    SELECT 1 FROM pg_policies WHERE schemaname = 'mp_reading' AND tablename = 'parents' AND policyname = 'Parents can update own profile'
   ) THEN
     CREATE POLICY "Parents can update own profile"
-      ON parents FOR UPDATE
+      ON mp_reading.parents FOR UPDATE
       USING (id = auth.uid());
   END IF;
 END $$;
@@ -37,10 +37,10 @@ DECLARE
 BEGIN
   FOR table_name IN 
     SELECT tablename FROM pg_tables 
-    WHERE schemaname = 'public' 
+    WHERE schemaname = 'mp_reading' 
     AND tablename IN ('parents', 'children', 'parent_invitations', 'onboarding_data', 'data_access_logs')
   LOOP
-    EXECUTE format('ALTER TABLE %I ENABLE ROW LEVEL SECURITY', table_name);
+    EXECUTE format('ALTER TABLE mp_reading.%I ENABLE ROW LEVEL SECURITY', table_name);
   END LOOP;
 END $$;
 

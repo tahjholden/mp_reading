@@ -71,16 +71,18 @@
 </script>
 
 <div class="space-y-6">
-	<div>
-		<h3 class="text-lg font-semibold mb-3">What genres do you like? (Select all that apply)</h3>
+	<div role="group" aria-labelledby="genres-heading">
+		<h3 id="genres-heading" class="text-lg font-semibold mb-3">What genres do you like? (Select all that apply)</h3>
 		<div class="grid grid-cols-2 md:grid-cols-3 gap-2">
 			{#each genres as genre}
 				<button
 					type="button"
 					on:click={() => toggleGenre(genre)}
+					aria-pressed={surveyData.genres.includes(genre)}
+					aria-label="Select genre: {genre}"
 					class="px-4 py-2 rounded-md border-2 {surveyData.genres.includes(genre)
 						? 'bg-blue-600 text-white border-blue-600'
-						: 'bg-white text-gray-700 border-gray-300 hover:border-blue-500'}"
+						: 'bg-white text-gray-700 border-gray-300 hover:border-blue-500'} focus:outline-none focus:ring-2 focus:ring-blue-500"
 				>
 					{genre}
 				</button>
@@ -88,16 +90,18 @@
 		</div>
 	</div>
 
-	<div>
-		<h3 class="text-lg font-semibold mb-3">What topics interest you? (Select all that apply)</h3>
+	<div role="group" aria-labelledby="topics-heading">
+		<h3 id="topics-heading" class="text-lg font-semibold mb-3">What topics interest you? (Select all that apply)</h3>
 		<div class="grid grid-cols-2 md:grid-cols-3 gap-2">
 			{#each topics as topic}
 				<button
 					type="button"
 					on:click={() => toggleTopic(topic)}
+					aria-pressed={surveyData.topics.includes(topic)}
+					aria-label="Select topic: {topic}"
 					class="px-4 py-2 rounded-md border-2 {surveyData.topics.includes(topic)
 						? 'bg-blue-600 text-white border-blue-600'
-						: 'bg-white text-gray-700 border-gray-300 hover:border-blue-500'}"
+						: 'bg-white text-gray-700 border-gray-300 hover:border-blue-500'} focus:outline-none focus:ring-2 focus:ring-blue-500"
 				>
 					{topic}
 				</button>
@@ -105,16 +109,18 @@
 		</div>
 	</div>
 
-	<div>
-		<h3 class="text-lg font-semibold mb-3">What formats do you prefer? (Select all that apply)</h3>
+	<div role="group" aria-labelledby="formats-heading">
+		<h3 id="formats-heading" class="text-lg font-semibold mb-3">What formats do you prefer? (Select all that apply)</h3>
 		<div class="grid grid-cols-2 md:grid-cols-4 gap-2">
 			{#each formats as format}
 				<button
 					type="button"
 					on:click={() => toggleFormat(format)}
+					aria-pressed={surveyData.formats.includes(format)}
+					aria-label="Select format: {format}"
 					class="px-4 py-2 rounded-md border-2 {surveyData.formats.includes(format)
 						? 'bg-blue-600 text-white border-blue-600'
-						: 'bg-white text-gray-700 border-gray-300 hover:border-blue-500'}"
+						: 'bg-white text-gray-700 border-gray-300 hover:border-blue-500'} focus:outline-none focus:ring-2 focus:ring-blue-500"
 				>
 					{format}
 				</button>

@@ -96,7 +96,7 @@
 	}
 </script>
 
-<div class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+<div class="max-w-md mx-auto p-4 sm:p-6 bg-white rounded-lg shadow-md">
 	<h2 class="text-2xl font-bold mb-6">Add Your Child</h2>
 
 	<form on:submit|preventDefault={handleSubmit} class="space-y-4">
@@ -109,12 +109,16 @@
 				type="text"
 				bind:value={name}
 				required
+				autocomplete="name"
+				aria-required="true"
+				aria-invalid={error ? 'true' : 'false'}
+				aria-describedby={error ? 'error-message' : undefined}
 				class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
 				placeholder="Enter child's name"
 			/>
 		</div>
 
-		<div class="grid grid-cols-2 gap-4">
+		<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 			<div>
 				<label for="age" class="block text-sm font-medium text-gray-700 mb-1">
 					Age *
@@ -192,7 +196,7 @@
 		</div>
 
 		{#if error}
-			<div class="p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+			<div id="error-message" class="p-3 bg-red-100 border border-red-400 text-red-700 rounded" role="alert" aria-live="assertive">
 				{error}
 			</div>
 		{/if}
@@ -200,6 +204,8 @@
 		<button
 			type="submit"
 			disabled={loading}
+			aria-busy={loading}
+			aria-disabled={loading}
 			class="w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
 		>
 			{loading ? 'Creating profile...' : 'Add Child'}

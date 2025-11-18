@@ -53,7 +53,7 @@
 	}
 </script>
 
-<div class="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
+<div class="max-w-md mx-auto mt-4 sm:mt-8 p-4 sm:p-6 bg-white rounded-lg shadow-md">
 	<h2 class="text-2xl font-bold mb-6 text-center">Parent Login</h2>
 
 	<form on:submit|preventDefault={handleSubmit} class="space-y-4">
@@ -66,6 +66,9 @@
 				type="email"
 				bind:value={email}
 				required
+				autocomplete="email"
+				aria-required="true"
+				aria-invalid={error ? 'true' : 'false'}
 				class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
 				placeholder="your@email.com"
 			/>
@@ -80,13 +83,16 @@
 				type="password"
 				bind:value={password}
 				required
+				autocomplete="current-password"
+				aria-required="true"
+				aria-invalid={error ? 'true' : 'false'}
 				class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
 				placeholder="Enter your password"
 			/>
 		</div>
 
 		{#if error}
-			<div class="p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+			<div class="p-3 bg-red-100 border border-red-400 text-red-700 rounded" role="alert" aria-live="assertive">
 				{error}
 			</div>
 		{/if}
@@ -94,6 +100,8 @@
 		<button
 			type="submit"
 			disabled={loading}
+			aria-busy={loading}
+			aria-disabled={loading}
 			class="w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
 		>
 			{loading ? 'Logging in...' : 'Log In'}

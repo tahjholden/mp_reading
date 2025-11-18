@@ -175,22 +175,22 @@
 
 ### Tests for Parent Invitations ⚠️
 
-- [ ] T083 [P] Contract test for send invitation endpoint in tests/contract/invitations-send.test.ts
-- [ ] T084 [P] Contract test for accept invitation endpoint in tests/contract/invitations-accept.test.ts
-- [ ] T085 [P] Integration test for invitation flow in tests/integration/invitation-flow.test.ts
-- [ ] T086 [P] Integration test for secondary parent read-only access in tests/integration/secondary-parent-access.test.ts
+- [x] T083 [P] Contract test for send invitation endpoint in tests/contract/invitations-send.test.ts
+- [x] T084 [P] Contract test for accept invitation endpoint in tests/contract/invitations-accept.test.ts
+- [x] T085 [P] Integration test for invitation flow in tests/integration/invitation-flow.test.ts
+- [x] T086 [P] Integration test for secondary parent read-only access in tests/integration/secondary-parent-access.test.ts
 
 ### Implementation for Parent Invitations
 
-- [ ] T087 Implement send invitation API endpoint in src/routes/api/parents/invitations/+server.ts
-- [ ] T088 Implement generate invitation token function in src/lib/server/api/invitations/generate-token.ts
-- [ ] T089 Implement send invitation email function in src/lib/server/api/invitations/send-email.ts
-- [ ] T090 Implement accept invitation API endpoint in src/routes/api/parents/invitations/[token]/accept/+server.ts
-- [ ] T091 Create parent invitation form component in src/lib/components/parent/ParentInviteForm.svelte
-- [ ] T092 Create invitation acceptance page route in src/routes/(auth)/invitations/[token]/+page.svelte
-- [ ] T093 Implement invitation expiration check (7 days)
-- [ ] T094 Add RLS policy for secondary parent read-only access
-- [ ] T095 Add validation that secondary parents cannot modify child data
+- [x] T087 Implement send invitation API endpoint in src/routes/api/parents/invitations/+server.ts
+- [x] T088 Implement generate invitation token function in src/lib/server/api/invitations/generate-token.ts
+- [x] T089 Implement send invitation email function in src/lib/server/api/invitations/send-email.ts
+- [x] T090 Implement accept invitation API endpoint in src/routes/api/parents/invitations/[token]/accept/+server.ts
+- [x] T091 Create parent invitation form component in src/lib/components/parent/ParentInviteForm.svelte
+- [x] T092 Create invitation acceptance page route in src/routes/(auth)/invitations/[token]/+page.svelte
+- [x] T093 Implement invitation expiration check (7 days)
+- [x] T094 Add RLS policy for secondary parent read-only access
+- [x] T095 Add validation that secondary parents cannot modify child data
 
 ---
 
@@ -202,21 +202,21 @@
 
 ### Tests for Password Management ⚠️
 
-- [ ] T096 [P] Contract test for parent password reset endpoint in tests/contract/password-reset-parent.test.ts
-- [ ] T097 [P] Contract test for child password reset endpoint in tests/contract/password-reset-child.test.ts
-- [ ] T098 [P] Integration test for parent password reset flow in tests/integration/password-reset-parent.test.ts
-- [ ] T099 [P] Integration test for child password reset flow in tests/integration/password-reset-child.test.ts
+- [x] T096 [P] Contract test for parent password reset endpoint in tests/contract/password-reset-parent.test.ts
+- [x] T097 [P] Contract test for child password reset endpoint in tests/contract/password-reset-child.test.ts
+- [x] T098 [P] Integration test for parent password reset flow in tests/integration/password-reset-parent.test.ts
+- [x] T099 [P] Integration test for child password reset flow in tests/integration/password-reset-child.test.ts
 
 ### Implementation for Password Management
 
-- [ ] T100 Implement parent password reset request API endpoint in src/routes/api/auth/parent/reset-password/+server.ts
-- [ ] T101 Implement send password reset email function in src/lib/server/api/auth/send-reset-email.ts
-- [ ] T102 Implement parent password reset confirmation API endpoint in src/routes/api/auth/parent/reset-password/confirm/+server.ts
-- [ ] T103 Implement child password reset API endpoint in src/routes/api/parents/children/[childId]/password/+server.ts
-- [ ] T104 Create password reset request form component in src/lib/components/auth/PasswordReset.svelte
-- [ ] T105 Create password reset confirmation page route in src/routes/(auth)/reset-password/[token]/+page.svelte
-- [ ] T106 Add validation that children cannot self-initiate password resets
-- [ ] T107 Add password reset token expiration (2 hours for parents)
+- [x] T100 Implement parent password reset request API endpoint in src/routes/api/auth/parent/reset-password/+server.ts
+- [x] T101 Implement send password reset email function in src/lib/server/api/auth/send-reset-email.ts
+- [x] T102 Implement parent password reset confirmation API endpoint in src/routes/api/auth/parent/reset-password/confirm/+server.ts
+- [x] T103 Implement child password reset API endpoint in src/routes/api/parents/children/[childId]/password/+server.ts
+- [x] T104 Create password reset request form component in src/lib/components/auth/PasswordReset.svelte
+- [x] T105 Create password reset confirmation page route in src/routes/(auth)/reset-password/[token]/+page.svelte
+- [x] T106 Add validation that children cannot self-initiate password resets
+- [x] T107 Add password reset token expiration (2 hours for parents)
 
 ---
 
@@ -224,18 +224,18 @@
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T108 [P] Add comprehensive error handling across all API endpoints
-- [ ] T109 [P] Add loading states and user feedback for all forms
-- [ ] T110 [P] Implement accessibility features (WCAG 2.1 AA) in all components
-- [ ] T111 [P] Add responsive design for tablet and mobile devices
-- [ ] T112 [P] Add data export functionality for COPPA compliance in src/lib/server/api/children/export-data.ts
-- [ ] T113 [P] Implement account deletion with data cleanup in src/lib/server/api/accounts/delete.ts
-- [ ] T114 [P] Add comprehensive logging for all data access events
-- [ ] T115 [P] Performance optimization: Add database query optimization and caching where needed
-- [ ] T116 [P] Security hardening: Review and test all RLS policies
+- [x] T108 [P] Add comprehensive error handling across all API endpoints
+- [x] T109 [P] Add loading states and user feedback for all forms
+- [x] T110 [P] Implement accessibility features (WCAG 2.1 AA) in all components
+- [x] T111 [P] Add responsive design for tablet and mobile devices
+- [x] T112 [P] Add data export functionality for COPPA compliance in src/lib/server/api/children/export-data.ts
+- [x] T113 [P] Implement account deletion with data cleanup in src/lib/server/api/accounts/delete.ts
+- [x] T114 [P] Add comprehensive logging for all data access events
+- [x] T115 [P] Performance optimization: Add database query optimization and caching where needed
+- [x] T116 [P] Security hardening: Review and test all RLS policies
 - [ ] T117 [P] Run quickstart.md validation scenarios
-- [ ] T118 [P] Update documentation in README.md and API documentation
-- [ ] T119 [P] Code cleanup and refactoring for consistency
+- [x] T118 [P] Update documentation in README.md and API documentation
+- [x] T119 [P] Code cleanup and refactoring for consistency
 
 ---
 
