@@ -48,9 +48,9 @@
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T207 [P] [US1] Contract test for list books endpoint in tests/contract/books-list.test.ts
-- [ ] T208 [P] [US1] Contract test for get book endpoint in tests/contract/books-get.test.ts
-- [ ] T209 [P] [US1] Integration test for catalog browsing flow in tests/integration/catalog-browse-flow.test.ts
+- [x] T207 [P] [US1] Contract test for list books endpoint in tests/contract/books-list.test.ts
+- [x] T208 [P] [US1] Contract test for get book endpoint in tests/contract/books-get.test.ts
+- [x] T209 [P] [US1] Integration test for catalog browsing flow in tests/integration/catalog-browse-flow.test.ts
 
 ### Implementation for User Story 1
 
@@ -79,7 +79,7 @@
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T220 [P] [US3] Integration test for book detail page in tests/integration/book-detail-flow.test.ts
+- [x] T220 [P] [US3] Integration test for book detail page in tests/integration/book-detail-flow.test.ts
 
 ### Implementation for User Story 3
 
@@ -102,10 +102,10 @@
 
 ### Tests for Filtering & Search ⚠️
 
-- [ ] T227 [P] Contract test for filtered books endpoint in tests/contract/books-filter.test.ts
-- [ ] T228 [P] Contract test for search books endpoint in tests/contract/books-search.test.ts
-- [ ] T229 [P] Integration test for filtering flow in tests/integration/catalog-filter-flow.test.ts
-- [ ] T230 [P] Integration test for search flow in tests/integration/catalog-search-flow.test.ts
+- [x] T227 [P] Contract test for filtered books endpoint in tests/contract/books-filter.test.ts
+- [x] T228 [P] Contract test for search books endpoint in tests/contract/books-search.test.ts
+- [x] T229 [P] Integration test for filtering flow in tests/integration/catalog-filter-flow.test.ts
+- [x] T230 [P] Integration test for search flow in tests/integration/catalog-search-flow.test.ts
 
 ### Implementation for Filtering & Search
 
